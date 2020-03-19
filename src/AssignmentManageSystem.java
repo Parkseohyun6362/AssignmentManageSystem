@@ -1,5 +1,5 @@
 
-public class HelloWorld {
+public class AssignmentManageSystem {
 
 	public static void main(String[] args) {
 		System.out.println(" This is your studying planner ! ");
