@@ -48,17 +48,17 @@ public class AssignmentManageSystem {
 	public static void Deleteassignment() {
 		Scanner input =  new Scanner(System.in);
 		System.out.print("subject :");
-		String subject = input.nextLine();	
+		String subject = input.next();	
 	}
 	public static void Editassignment() {
 		Scanner input =  new Scanner(System.in);
 		System.out.print("subject :");
-		String subject = input.nextLine();
+		String subject = input.next();
 	}
 	public static void Viewassignment() {
 		Scanner input =  new Scanner(System.in);
 		System.out.print("subject :");
-		String subject = input.nextLine();
+		String subject = input.next();
 	}
 	
 
