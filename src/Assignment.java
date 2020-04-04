@@ -1,27 +1,25 @@
 
 public class Assignment {
 	String subject;
-	String assignmentName;
-	int submissionperiod;
-	String submissionmethod;
-	Assignment(){
-		
+	String assignmentname;
+	String period;
+	String method;
+	public Assignment(){
 	}
 	
-	public Assignment(String subject, String assignmentName) {
+	public Assignment(String subject, String assignmentname) {
 		this.subject = subject;
-		this.assignmentName = assignmentName;
+		this.assignmentname = assignmentname;
 	}
 	
-	public Assignment(String subject, String assignmentName,int submissionperiod,String submissionmethod) {
+	public Assignment(String subject, String assignmentname,String period,String method) {
 		this.subject = subject;
-		this.assignmentName = assignmentName;
-		this.submissionperiod = submissionperiod;
-		this.submissionmethod = submissionmethod;
+		this.assignmentname = assignmentname;
+		this.period = period;
+		this.method = method;
 	}
-	public void printAssign() {
-		System.out.println("Subject : "+this.subject+" "+"assignmentName :"+this.assignmentName+"period :"+this.submissionperiod+"submissionmethod"+this.submissionmethod);
+
+	public void printInfo() {
+		System.out.println("Subject: "+ subject +"assignmentName:"+ assignmentname +"period :"+ period +"submissionmethod"+ method);
 	}
-	
-	
 }

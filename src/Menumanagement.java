@@ -5,7 +5,6 @@ public class Menumanagement {
 		Scanner input =  new Scanner(System.in);
 		AssignmentManage assignmentmanage = new AssignmentManage(input);
 		int num =-1;
-		
 		while(num != 5) {
 			System.out.println(" This is your studying planner ! ");
 			System.out.println("1. Add assignment");
