@@ -10,7 +10,7 @@ public class Menumanagement {
 			System.out.println("1. Add assignment");
 			System.out.println("2. Delete assignment");
 			System.out.println("3. Edit assignment");
-			System.out.println("4. View assignment");
+			System.out.println("4. View assignments");
 			System.out.println("5. Exit");
 			System.out.println("Select one number between 1 - 5 :");
 			num = input.nextInt();
@@ -24,7 +24,7 @@ public class Menumanagement {
 				assignmentmanage.Editassignment();
 			}
 			else if (num ==4 ) {
-				assignmentmanage.Viewassignment();
+				assignmentmanage.Viewassignments();
 			}
 			else  {
 				continue;
