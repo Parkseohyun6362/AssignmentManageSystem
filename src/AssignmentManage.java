@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import assignment.Assignment;
+import assignment.Presentation;
+
 public class AssignmentManage {
 	ArrayList<Assignment> assignments = new ArrayList<Assignment>();
 	Scanner input;
@@ -8,16 +11,29 @@ public class AssignmentManage {
 		this.input = input;
 	}
 	public void Addassignment() {
-		Assignment assignment= new Assignment();
-		System.out.print("subject :");
-		assignment.subject = input.next();
-		System.out.print("assignmentName :");
-		assignment.assignmentname = input.next();
-		System.out.print("assignment submission period :");
-		assignment.period = input.next();
-		System.out.print("assignment Submission method:");
-		assignment.method = input.next();
-		assignments.add(assignment);
+		int kind =0;
+		Assignment assignment;
+		while(kind !=1 && kind != 2) {
+			System.out.print("1. for Presentation");
+			System.out.print("2. for Write");
+			System.out.print("Select Assignment kind: ");
+			kind = input.nextInt();
+			if(kind == 1) {
+				assignment= new Assignment();
+				assignment.getUserInput(input);
+				assignments.add(assignment);
+				break;
+			}
+			else if (kind ==2) {
+				assignment= new Presentation();
+				assignment.getUserInput(input);
+				assignments.add(assignment);
+				break;
+			}
+			else {
+				System.out.print("Select num for Assignment kind between 1 and 2:");
+			}
+		}
 	}
 
 	public void Deleteassignment() {
@@ -25,7 +41,7 @@ public class AssignmentManage {
 		String assignmentName = input.next();
 		int index = -1;
 		for(int i = 0; i<assignments.size();i++) {
-			if (assignments.get(i).assignmentname.equals(assignmentName)) {
+			if (assignments.get(i).getSubject().equals(assignmentName)) {
 				index = i;
 				break;
 			}
@@ -45,7 +61,7 @@ public class AssignmentManage {
 		String assignmentName = input.next();
 		for(int i = 0; i<assignments.size();i++) {
 			Assignment assignment = assignments.get(i);
-			if (assignment.assignmentname.equals (assignmentName)) {
+			if (assignment.getAssignmentname().equals (assignmentName)) {
 				int num =-1;
 				while(num != 5) {
 					System.out.println("* This is your studying planner ! *");
@@ -58,19 +74,23 @@ public class AssignmentManage {
 					num = input.nextInt();
 					if (num == 1) {
 						System.out.print("subject :");
-						assignment.subject = input.next();
+						String subject = input.next();
+						assignment.setSubject(subject);
 					}
 					else if (num ==2 ) {
 						System.out.print("assignment name :");
-						assignment.assignmentname = input.next();
+						String assignmentname = input.next();
+						assignment.setAssignmentname(assignmentname);
 					}
 					else if (num ==3 ) {
 						System.out.print("assignment submission period :");
-						assignment.period = input.next();
+						String period = input.next();
+						assignment.setPeriod(period);
 					}
 					else if (num ==4 ) {
 						System.out.print("assignment Submission method:");
-						assignment.method = input.next();
+						String method = input.next();
+						assignment.setMethod(method);
 					}
 					else  {
 						continue;
