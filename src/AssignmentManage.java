@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import assignment.Assignment;
+import assignment.Assignmentkind;
 import assignment.Presentation;
+import assignment.Write;
 
 public class AssignmentManage {
 	ArrayList<Assignment> assignments = new ArrayList<Assignment>();
@@ -14,9 +16,10 @@ public class AssignmentManage {
 		int kind =0;
 		Assignment assignment;
 		while(kind !=1 && kind != 2) {
-			System.out.print("1. for Presentation");
-			System.out.print("2. for Write");
-			System.out.print("Select Assignment kind: ");
+			System.out.println("1. for normalassginment");
+			System.out.println("2. for Presentation");
+			System.out.println("3. for Write");
+			System.out.print("Select num 1, 2, and3 Assignment kind: ");
 			kind = input.nextInt();
 			if(kind == 1) {
 				assignment= new Assignment();
@@ -25,7 +28,13 @@ public class AssignmentManage {
 				break;
 			}
 			else if (kind ==2) {
-				assignment= new Presentation();
+				assignment= new Presentation(Assignmentkind.Presentation);
+				assignment.getUserInput(input);
+				assignments.add(assignment);
+				break;
+			}
+			else if (kind ==3) {
+				assignment= new Write(Assignmentkind.Write);
 				assignment.getUserInput(input);
 				assignments.add(assignment);
 				break;
@@ -73,22 +82,22 @@ public class AssignmentManage {
 					System.out.println("Select one number between 1 - 5 :");
 					num = input.nextInt();
 					if (num == 1) {
-						System.out.print("subject :");
+						System.out.print(" subject :");
 						String subject = input.next();
 						assignment.setSubject(subject);
 					}
 					else if (num ==2 ) {
-						System.out.print("assignment name :");
+						System.out.print(" assignment name :");
 						String assignmentname = input.next();
 						assignment.setAssignmentname(assignmentname);
 					}
 					else if (num ==3 ) {
-						System.out.print("assignment submission period :");
+						System.out.print(" assignment submission period :");
 						String period = input.next();
 						assignment.setPeriod(period);
 					}
 					else if (num ==4 ) {
-						System.out.print("assignment Submission method:");
+						System.out.print(" assignment Submission method:");
 						String method = input.next();
 						assignment.setMethod(method);
 					}

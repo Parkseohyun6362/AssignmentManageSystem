@@ -14,12 +14,17 @@ public class Assignment {
 	public Assignment(){
 	}
 	
+	public Assignment(Assignmentkind kind){
+		this.kind = kind;
+	}
+	
 	public Assignment(String subject, String assignmentname) {
 		this.subject = subject;
 		this.assignmentname = assignmentname;
 	}
 	
-	public Assignment(String subject, String assignmentname,String period,String method) {
+	public Assignment(Assignmentkind kind,String subject, String assignmentname,String period,String method) {
+		this.kind = kind;
 		this.subject = subject;
 		this.assignmentname = assignmentname;
 		this.period = period;
@@ -67,7 +72,25 @@ public class Assignment {
 	}
 	
 	public void printInfo() {
-		System.out.println("Subject: "+ subject +"assignmentName:"+ assignmentname +"period :"+ period +"submissionmethod"+ method);
+		String kind1 = "none";
+		switch(this.kind) {
+		case Presentation:
+			kind1 = "Presentation"; 
+			break;
+		case Write:
+			kind1 = "Write";
+			break;
+		case Summary:
+			kind1 = "Summary";
+			break;
+		case RearchandDevelopment:
+			kind1 = "R&D";
+			break;
+		case Solvetask:
+			kind1 = "Solving";
+			break;
+		}
+		System.out.println("kind: "+kind1+"Subject: "+ subject +"assignmentName:"+ assignmentname +"period :"+ period +"submissionmethod"+ method);
 	}
 	
 	public void getUserInput(Scanner input) {
