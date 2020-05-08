@@ -6,30 +6,35 @@ public class Menumanagement {
 		AssignmentManage assignmentmanage = new AssignmentManage(input);
 		int num =-1;
 		while(num != 5) {
-			System.out.println(" This is your studying planner ! ");
-			System.out.println("1. Add assignment");
-			System.out.println("2. Delete assignment");
-			System.out.println("3. Edit assignment");
-			System.out.println("4. View assignments");
-			System.out.println("5. Exit");
-			System.out.println("Select one number between 1 - 5 :");
+			showMenu();
 			num = input.nextInt();
-			if (num == 1) {
+			
+			switch(num) {
+			case 1:
 				assignmentmanage.Addassignment();
-			}
-			else if (num ==2 ) {
+				break;
+			case 2:
 				assignmentmanage.Deleteassignment();
-			}
-			else if (num ==3 ) {
+				break;
+			case 3:
 				assignmentmanage.Editassignment();
-			}
-			else if (num ==4 ) {
+				break;
+			case 4:
 				assignmentmanage.Viewassignments();
-			}
-			else  {
+				break;
+			default:
 				continue;
 			}
 		}
 	}
-
+	
+	public static void showMenu() {
+		System.out.println(" This is your studying planner ! ");
+		System.out.println("1. Add assignment");
+		System.out.println("2. Delete assignment");
+		System.out.println("3. Edit assignment");
+		System.out.println("4. View assignments");
+		System.out.println("5. Exit");
+		System.out.println("Select one number between 1 - 5 :");
+	}
 }

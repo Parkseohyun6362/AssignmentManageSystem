@@ -2,7 +2,7 @@ package assignment;
 
 import java.util.Scanner;
 
-public class Assignment {
+public  abstract class Assignment implements AssignmentInput{
 	protected Assignmentkind kind = Assignmentkind.Solvetask ; 
 	protected String subject;
 	protected String assignmentname;
@@ -71,7 +71,33 @@ public class Assignment {
 		this.method = method;
 	}
 	
-	public void printInfo() {
+	public abstract void printInfo();
+	
+	public void setAssignmentSubject( Scanner input) {
+		System.out.print(" subject :");
+		String subject = input.next();
+		this.setSubject(subject);
+	}
+	
+	public void setAssignmentName(Scanner input) {
+		System.out.print(" assignment name :");
+		String assignmentname = input.next();
+		this.setAssignmentname(assignmentname);
+	}
+	
+	public void setAssignmentPeriod(Scanner input) {
+		System.out.print(" assignment submission period :");
+		String period = input.next();
+		this.setPeriod(period);
+	}
+	
+	public void setAssignmentMethod(Scanner input) {
+		System.out.print(" assignment Submission method:");
+		String method = input.next();
+		this.setMethod(method);
+	}
+	
+	public String getkindString() {
 		String kind1 = "none";
 		switch(this.kind) {
 		case Presentation:
@@ -89,22 +115,9 @@ public class Assignment {
 		case Solvetask:
 			kind1 = "Solving";
 			break;
+		default:
 		}
-		System.out.println("kind: "+kind1+"Subject: "+ subject +"assignmentName:"+ assignmentname +"period :"+ period +"submissionmethod"+ method);
+		return kind1;
 	}
-	
-	public void getUserInput(Scanner input) {
-		System.out.print("subject :");
-		String subject = input.next();
-		this.setSubject(subject);
-		System.out.print("assignmentName :");
-		String assignmentname = input.next();
-		this.setAssignmentname(assignmentname);
-		System.out.print("assignment submission period :");
-		String period = input.next();
-		this.setPeriod(period);
-		System.out.print("assignment Submission method:");
-		String method = input.next();
-		this.setMethod(method);
-	}
+		
 }
