@@ -1,33 +1,47 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menumanagement {
 	public static void main(String[] args) {
 		Scanner input =  new Scanner(System.in);
 		AssignmentManage assignmentmanage = new AssignmentManage(input);
+		
+		selectMenu(input, assignmentmanage);
+	}
+	
+	public static void selectMenu(Scanner input,AssignmentManage assignmentmanage) {
 		int num =-1;
 		while(num != 5) {
-			showMenu();
-			num = input.nextInt();
-			
-			switch(num) {
-			case 1:
-				assignmentmanage.Addassignment();
-				break;
-			case 2:
-				assignmentmanage.Deleteassignment();
-				break;
-			case 3:
-				assignmentmanage.Editassignment();
-				break;
-			case 4:
-				assignmentmanage.Viewassignments();
-				break;
-			default:
-				continue;
+			try {
+				showMenu();
+				num = input.nextInt();
+				
+				switch(num) {
+				case 1:
+					assignmentmanage.Addassignment();
+					break;
+				case 2:
+					assignmentmanage.Deleteassignment();
+					break;
+				case 3:
+					assignmentmanage.Editassignment();
+					break;
+				case 4:
+					assignmentmanage.Viewassignments();
+					break;
+				default:
+					continue;
+				}
+			}
+			catch(InputMismatchException e){
+				System.out.println("Please put an integer between 1 and 5!");
+				if(input.hasNext()) {
+					input.next();
+				}
+				num = -1;
 			}
 		}
 	}
-	
 	public static void showMenu() {
 		System.out.println(" This is your studying planner ! ");
 		System.out.println("1. Add assignment");

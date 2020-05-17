@@ -2,6 +2,8 @@ package assignment;
 
 import java.util.Scanner;
 
+import Exceptions.PeriodFormatException;
+
 public  abstract class Assignment implements AssignmentInput{
 	protected Assignmentkind kind = Assignmentkind.Solvetask ; 
 	protected String subject;
@@ -59,7 +61,11 @@ public  abstract class Assignment implements AssignmentInput{
 		return period;
 	}
 
-	public void setPeriod(String period) {
+	public void setPeriod(String period) throws PeriodFormatException {
+		if(!period.contains("~") && !period.equals("")) {
+			throw new PeriodFormatException();
+		}
+		
 		this.period = period;
 	}
 
@@ -86,9 +92,16 @@ public  abstract class Assignment implements AssignmentInput{
 	}
 	
 	public void setAssignmentPeriod(Scanner input) {
-		System.out.print(" assignment submission period :");
-		String period = input.next();
-		this.setPeriod(period);
+		String period = "";
+		while(!period.contains("~")) {
+			System.out.print(" assignment submission period :");
+			period = input.next();
+			try {
+				this.setPeriod(period);
+			}catch(PeriodFormatException e) {
+				System.out.println("Incorrect Period Format. put the period that contains ~");
+			}
+		}
 	}
 	
 	public void setAssignmentMethod(Scanner input) {
@@ -100,6 +113,9 @@ public  abstract class Assignment implements AssignmentInput{
 	public String getkindString() {
 		String kind1 = "none";
 		switch(this.kind) {
+		case Normalassignment:
+			kind1 = "Normalassignment";
+			break;
 		case Presentation:
 			kind1 = "Presentation"; 
 			break;

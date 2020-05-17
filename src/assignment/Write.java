@@ -13,6 +13,12 @@ public class Write extends CommonPart {
 	public void getUserInput(Scanner input) {
 		setAssignmentSubject(input);
 		setAssignmentName(input);
+		setOnesubmissionMethod(input);
+		setanothersubmissionMethod(input);
+		setAssignmentPeriod(input);
+	}
+	
+	public void setOnesubmissionMethod(Scanner input) {
 		char answer = 'x';
 		while(answer !='y' && answer !='Y' && answer !='n' && answer !='N') {
 			System.out.print("Do you have submission method? (Y/N)");
@@ -28,8 +34,6 @@ public class Write extends CommonPart {
 			else {
 			}
 		}
-		setanothersubmissionMethod(input);
-		setAssignmentPeriod(input);
 	}
 
 	public void setanothersubmissionMethod(Scanner input) {

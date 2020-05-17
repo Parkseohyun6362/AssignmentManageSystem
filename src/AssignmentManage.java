@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import assignment.Assignment;
@@ -17,32 +18,41 @@ public class AssignmentManage {
 	public void Addassignment() {
 		int kind =0;
 		AssignmentInput assignmentInput;
-		while(kind !=1 && kind != 2) {
-			System.out.println("1. for normalassginment");
-			System.out.println("2. for Presentation");
-			System.out.println("3. for Write");
-			System.out.print("Select num 1, 2, and3 Assignment kind: ");
-			kind = input.nextInt();
-			if(kind == 1) {
-				assignmentInput= new Normalassignment(Assignmentkind.Normalassignment);
-				assignmentInput.getUserInput(input);
-				assignments.add(assignmentInput);
-				break;
+		while(kind <1 || kind > 3) {
+			try {
+				System.out.println("1. for normalassginment");
+				System.out.println("2. for Presentation");
+				System.out.println("3. for Write");
+				System.out.print("Select num 1, 2, and3 Assignment kind: ");
+				kind = input.nextInt();
+				if(kind == 1) {
+					assignmentInput= new Normalassignment(Assignmentkind.Normalassignment);
+					assignmentInput.getUserInput(input);
+					assignments.add(assignmentInput);
+					break;
+				}
+				else if (kind ==2) {
+					assignmentInput= new Presentation(Assignmentkind.Presentation);
+					assignmentInput.getUserInput(input);
+					assignments.add(assignmentInput);
+					break;
+				}
+				else if (kind ==3) {
+					assignmentInput= new Write(Assignmentkind.Write);
+					assignmentInput.getUserInput(input);
+					assignments.add(assignmentInput);
+					break;
+				}
+				else {
+					System.out.print("Select num for Assignment kind between 1 and 2:");
+				}
 			}
-			else if (kind ==2) {
-				assignmentInput= new Presentation(Assignmentkind.Presentation);
-				assignmentInput.getUserInput(input);
-				assignments.add(assignmentInput);
-				break;
-			}
-			else if (kind ==3) {
-				assignmentInput= new Write(Assignmentkind.Write);
-				assignmentInput.getUserInput(input);
-				assignments.add(assignmentInput);
-				break;
-			}
-			else {
-				System.out.print("Select num for Assignment kind between 1 and 2:");
+			catch(InputMismatchException e) {
+				System.out.println("Please put an integer between 1 and 5!");
+				if(input.hasNext()) {
+					input.next();
+				}
+				kind = -1;
 			}
 		}
 	}
@@ -66,7 +76,7 @@ public class AssignmentManage {
 	}
 	
 	public int removefromAssignments(int index,String assignmentName) {
-		if(index > 0) {
+		if(index >= 0) {
 			assignments.remove(index);
 			System.out.println("the assignment"+assignmentName +" is deleted");
 			return 1;

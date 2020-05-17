@@ -2,6 +2,8 @@ package assignment;
 
 import java.util.Scanner;
 
+import Exceptions.PeriodFormatException;
+
 public interface AssignmentInput {
 	
 	public void printInfo();
@@ -12,7 +14,7 @@ public interface AssignmentInput {
 	
 	public void setSubject(String subject);
 	
-	public void setPeriod(String period);
+	public void setPeriod(String period) throws PeriodFormatException;
 	
 	public String getAssignmentname();
 	

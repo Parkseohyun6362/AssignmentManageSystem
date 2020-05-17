@@ -17,6 +17,6 @@ public class Normalassignment extends Assignment {
 	
 	public void printInfo() {
 		String kind1 = getkindString();
-		System.out.println("kind: "+kind1+"Subject: "+ subject +"assignmentName:"+ assignmentname +"period :"+ period +"submissionmethod"+ method);
+		System.out.println("kind: "+kind1+" Subject: "+ subject +" assignmentName: "+ assignmentname +" period :"+ period +" submissionmethod: "+ method);
 	}
 }
