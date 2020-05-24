@@ -1,17 +1,24 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import assignment.Assignment;
 import assignment.AssignmentInput;
 import assignment.Assignmentkind;
 import assignment.Normalassignment;
 import assignment.Presentation;
 import assignment.Write;
 
-public class AssignmentManage {
+public class AssignmentManage implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8358588321279211657L;
 	ArrayList<AssignmentInput> assignments = new ArrayList<AssignmentInput>();
-	Scanner input;
+	transient Scanner input;
+	public void setScanner(Scanner input) {
+		this.input = input;
+	}
 	AssignmentManage(Scanner input){
 		this.input = input;
 	}

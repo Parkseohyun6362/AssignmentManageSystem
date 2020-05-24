@@ -1,10 +1,15 @@
 package assignment;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 import Exceptions.PeriodFormatException;
 
-public  abstract class Assignment implements AssignmentInput{
+public  abstract class Assignment implements AssignmentInput,Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7462060725211043592L;
 	protected Assignmentkind kind = Assignmentkind.Solvetask ; 
 	protected String subject;
 	protected String assignmentname;
