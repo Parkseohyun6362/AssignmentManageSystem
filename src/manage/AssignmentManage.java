@@ -1,8 +1,10 @@
+package manage;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import assignment.Assignment;
 import assignment.AssignmentInput;
 import assignment.Assignmentkind;
 import assignment.Normalassignment;
@@ -130,6 +132,14 @@ public class AssignmentManage implements Serializable{
 		for(int i = 0; i<assignments.size();i++) {
 			assignments.get(i).printInfo();
 		}
+	}
+	
+	public int size() {
+		return assignments.size();
+	}
+	
+	public AssignmentInput get(int index) {
+		return (Assignment)assignments.get(index);
 	}
 	
 	public void showEditMenu() {

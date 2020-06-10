@@ -8,17 +8,21 @@ public interface AssignmentInput {
 	
 	public void printInfo();
 	
+	public String getAssignmentname();
+	
 	public void setAssignmentname(String assignmentname);
+	
+	public String getMethod();
 	
 	public void setMethod(String method);
 	
+	public String getSubject();
+	
 	public void setSubject(String subject);
 	
+	public String getPeriod();
+	
 	public void setPeriod(String period) throws PeriodFormatException;
-	
-	public String getAssignmentname();
-	
-	public String getSubject();
 	
 	public void getUserInput(Scanner input);
 	
